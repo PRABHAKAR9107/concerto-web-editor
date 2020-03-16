@@ -1,0 +1,36 @@
+
+
+.r{
+    background-color:rgb(27, 37, 64); 
+    color:white;
+    
+}
+.b{
+    background:rgb(206, 198, 198);  
+}
+.nbar{
+    background:rgb(51, 51, 51); 
+}
+.g{
+    background-color:green; 
+}
+
+
+.toolbar{
+    background-color: white;
+}
+
+.ddarea{
+    background-color: #454545;
+    border: 3px solid rgb(185, 185, 185);
+    text-align: center;
+    color:white;
+    justify-content: center;
+}
+
+
+
+
+
+
+
