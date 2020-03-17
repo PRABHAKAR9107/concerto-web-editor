@@ -2,12 +2,9 @@ import React, { Component } from 'react';
 import { Menu } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
 import {
-	DiagramWidget,
 	DiagramEngine,
 	DefaultNodeFactory,
-	DefaultLinkFactory,
-	DefaultNodeModel,
-	DefaultPortModel
+	DefaultLinkFactory
 } from 'storm-react-diagrams';
 //import TrayWidget from './graph/component/TrayWidget';
 import TrayItemWidget from './graph/component/TrayItemWidget';

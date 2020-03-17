@@ -6,11 +6,7 @@ import {
 	DefaultNodeFactory,
 	DefaultLinkFactory,
 	DefaultNodeModel,
-    DefaultPortModel,
-    DiagramModel,
-    LinkInstanceFactory,
-    DefaultPortInstanceFactory,
-    DefaultNodeInstanceFactory
+    DefaultPortModel
 } from 'storm-react-diagrams';
 import './graph/srd.css';
 
