@@ -14,7 +14,7 @@ export default class App extends Component {
         return (
             <div>
                 <Layout className="bl" style={{ height: 635 }}>
-                    <Sider width={260} >
+                    <Sider width={200} >
                         <Content className="r" style={{ height: 100 }}>
                             <Logo />
                         </Content>
@@ -27,15 +27,15 @@ export default class App extends Component {
                             <Content className="nbar">
                                 <Navbar />
                             </Content>
-                            <Sider className="r" width={360} >
+                            <Sider className="r" width={420} >
                                 Action buttons
                             </Sider>
                         </Layout>
-                        <Layout style={{ height: 600 }}>
+                        <Layout style={{ width: 1170 }}>
                             <Content className="ddarea">
                                 <DDArea />
                             </Content>
-                            <Sider className="b" width={360} >
+                            <Sider className="b" width={420} >
                                 <DGCode />
                             </Sider>
                             
