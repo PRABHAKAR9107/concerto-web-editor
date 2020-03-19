@@ -32,6 +32,6 @@ export default create({
   inputBorderRadius: 4,
 
   brandTitle: 'Concerto Web Editor',
-  brandUrl: 'https://hopeful-kare-8ad63f.netlify.com/',
-  brandImage: 'logo'
+  brandUrl: 'https://hopeful-kare-8ad63f.netlify.com/'
+  //brandImage: 'logo'
 });
