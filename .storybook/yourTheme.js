@@ -33,5 +33,5 @@ export default create({
 
   brandTitle: 'Concerto Web Editor',
   brandUrl: 'https://hopeful-kare-8ad63f.netlify.com/',
-  brandImage: //set logo here later ,
+  brandImage: 'logo'
 });
