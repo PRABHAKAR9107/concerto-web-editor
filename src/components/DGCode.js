@@ -22,8 +22,7 @@ export default class DGCode extends Component {
                     value={this.state.code}
                     options={{
                     mode: 'javascript',
-                    lineNumbers: true,
-                    
+                    lineNumbers: true,                   
                 }}
                 
             />

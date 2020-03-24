@@ -7,8 +7,8 @@ import { create } from '@storybook/theming/create';
 export default {
   title: 'Add New Class',
   component: DDArea,
-};
 
+};
 
  create({
   base: 'light',
@@ -17,10 +17,6 @@ export default {
   brandUrl: 'https://example.com',
   brandImage: 'https://placehold.it/350x150',
 });
-
-
-
-
 
 
 export const Class = () =>(
