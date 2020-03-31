@@ -1,12 +1,7 @@
 import React, { Component } from 'react';
-import {Controlled as CodeMirror} from 'react-codemirror2';
-import 'codemirror/lib/codemirror.css';
+import MonacoEditor from 'react-monaco-editor';
 import { code } from './CTO/CTOFile';
 import "./Style.css";
-require('codemirror/mode/xml/xml');
-require('codemirror/mode/javascript/javascript');
-
-
 
 export default class DGCode extends Component {
     constructor(props){
@@ -15,17 +10,31 @@ export default class DGCode extends Component {
             code:code                        //add node data and link data later
         }
     }
+    editorDidMount=(editor, monaco)=> {
+        console.log('editorDidMount', editor);
+        editor.focus();
+    }
+    
+    onChange=(newValue, e)=> {
+        console.log('onChange', newValue, e);
+    }
+
     render() {
+        const code = this.state.code;
+        const options = {
+          selectOnLineNumbers: true
+        };
         return (
-               <CodeMirror
-                    className="CodeMirror"
-                    value={this.state.code}
-                    options={{
-                    mode: 'javascript',
-                    lineNumbers: true,                   
-                }}
-                
-            />
+            <MonacoEditor
+            width="800"
+            height="600"
+            language="javascript"
+            theme="vs-dark"
+            value={code}
+            options={options}
+            onChange={this.onChange}
+            editorDidMount={this.editorDidMount}
+          />
             
         )
     }
