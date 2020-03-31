@@ -10,15 +10,6 @@ export default class DGCode extends Component {
             code:code                        //add node data and link data later
         }
     }
-    editorDidMount=(editor, monaco)=> {
-        console.log('editorDidMount', editor);
-        editor.focus();
-    }
-    
-    onChange=(newValue, e)=> {
-        console.log('onChange', newValue, e);
-    }
-
     render() {
         const code = this.state.code;
         const options = {
@@ -32,8 +23,13 @@ export default class DGCode extends Component {
             theme="vs-dark"
             value={code}
             options={options}
-            onChange={this.onChange}
-            editorDidMount={this.editorDidMount}
+            onChange={(newValue,e)=>{
+                console.log('onChange',newValue,e)
+              }}
+            editorDidMount={(editor,monaco)=>{
+                console.log('editorDidMount',editor);
+                editor.focus();
+              }}
           />
             
         )

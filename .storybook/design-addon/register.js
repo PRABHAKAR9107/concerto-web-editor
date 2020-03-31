@@ -6,14 +6,18 @@ import { code } from '../CTO/CTOFile';
 import MonacoEditor from 'react-monaco-editor';
 
 
+const editorDidMount=(editor, monaco)=> {
+  console.log('editorDidMount', editor);
+  editor.focus();
+}
+
+
+
 addons.register('my/design-addon', () => {
    
   addons.add('design-addon/panel', {
     title: 'CODE',
     type: types.PANEL,
-
-    
-
     render: ({ active, key }) => (
       <AddonPanel active={active} key={key}>
             <MonacoEditor
@@ -22,7 +26,13 @@ addons.register('my/design-addon', () => {
                     language="javascript"
                     theme="vs-dark"
                     value={code}
-                   
+                    onChange={(newValue,e)=>{
+                      console.log('onChange',newValue,e)
+                    }}
+                    editorDidMount={(editor,monaco)=>{
+                      console.log('editorDidMount',editor);
+                      editor.focus();
+                    }}
             />
       </AddonPanel>
     ),
