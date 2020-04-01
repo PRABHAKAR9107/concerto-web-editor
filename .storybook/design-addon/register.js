@@ -6,12 +6,6 @@ import { code } from '../CTO/CTOFile';
 import MonacoEditor from 'react-monaco-editor';
 
 
-const editorDidMount=(editor, monaco)=> {
-  console.log('editorDidMount', editor);
-  editor.focus();
-}
-
-
 
 addons.register('my/design-addon', () => {
    
@@ -27,7 +21,8 @@ addons.register('my/design-addon', () => {
                     theme="vs-dark"
                     value={code}
                     onChange={(newValue,e)=>{
-                      console.log('onChange',newValue,e)
+                      console.log('onChange',newValue,e);
+                      parseCode(newValue);
                     }}
                     editorDidMount={(editor,monaco)=>{
                       console.log('editorDidMount',editor);
