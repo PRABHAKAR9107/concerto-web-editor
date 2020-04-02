@@ -9,7 +9,6 @@ export interface BodyWidgetProps {
 	app: Application;
 }
 
-
 export class BodyWidget extends React.Component<BodyWidgetProps> {
 	render() {
 		return (
@@ -19,8 +18,69 @@ export class BodyWidget extends React.Component<BodyWidgetProps> {
 
 							var node: DefaultNodeModel = null;
 							node = new DefaultNodeModel(data.name, data.color);
-                        	node.addInPort('In');
-                        	node.addOutPort('Out');
+							switch(data.name){
+								case 'Concept':
+									{
+										node.addInPort('String streetAddress','In');
+										node.addOutPort('');
+										node.addInPort('String postalCode','In');
+										node.addOutPort('');
+										node.addInPort('String postOfficeBoxNumber','In');
+										node.addOutPort('');
+										node.addInPort('String Address','In');
+										node.addOutPort('');
+										break;
+									}
+
+								case 'Participant':
+									{
+										node.addInPort('String identifier','In');
+										node.addOutPort('');
+										node.addInPort('String identifiedByField optional','In');
+										node.addOutPort('');
+										node.addInPort('TypeIdentifier superType optional','In');
+										node.addOutPort('');
+										node.addInPort(' Decorator[] decorators optional','In');
+										node.addOutPort('');
+										break;
+									}
+								case 'Transaction':
+									{
+										node.addInPort('String transactionId','In');
+										node.addOutPort('');
+										node.addInPort('DateTime timeStamp','In');
+										node.addOutPort('');
+										break;
+										
+									}
+								case 'Event':
+									{
+										node.addInPort('String eventId','In');
+										node.addOutPort('');
+										node.addInPort('DateTime timeStamp','In');
+										node.addOutPort('');
+										break;
+									}
+								case 'Enumerable':
+									{
+										node.addInPort('String summerSeason','In');
+										node.addOutPort('');
+										node.addInPort('String winterSeason','In');
+										node.addOutPort('');
+										node.addInPort('String rainySeason','In');
+										node.addOutPort('');
+										break;
+									}
+								case 'Asset':
+									{
+										node.addInPort('String assetOne','In');
+										node.addOutPort('');
+										node.addInPort('String assetTwo','In');
+										node.addOutPort('');
+										break;
+									}
+							}
+
 							var point = this.props.app.getDiagramEngine().getRelativeMousePoint(event);
 							node.setPosition(point);
 							this.props.app
