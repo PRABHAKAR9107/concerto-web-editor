@@ -6,7 +6,6 @@ import { code } from '../CTO/CTOFile';
 import MonacoEditor from 'react-monaco-editor';
 
 
-
 addons.register('my/design-addon', () => {
    
   addons.add('design-addon/panel', {

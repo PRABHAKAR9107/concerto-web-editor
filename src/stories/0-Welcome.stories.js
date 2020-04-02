@@ -28,7 +28,8 @@ export const Class = () =>(
       <li><TrayItemWidget model={{ type: 'out', color: "rgb(40, 181, 73)", name:"Transaction" }} name="Transaction" color="rgb(40, 181, 73)" /></li>
       <li><TrayItemWidget model={{ type: 'in', color: "rgb(133, 66, 162)", name:"Event" }} name="Event" color="rgb(133, 66, 162)" /></li>
       <li> <TrayItemWidget model={{ type: 'out', color: "rgb(254, 41, 123)", name:"Enumerable" }} name="Enumerable" color="rgb(254, 41, 123)" /></li>
-    </ul>   
+    </ul>  
+    
     <DDArea />
   </div>
 );
