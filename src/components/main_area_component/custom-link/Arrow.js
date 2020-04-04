@@ -1,18 +1,14 @@
-import React, { Component } from 'react';
-import createEngine, {
-    DiagramModel,
-    DefaultNodeModel,
+import React from 'react';
+import {
     DefaultPortModel,
     DefaultLinkFactory,
-    DefaultLinkPointWidget,
     DefaultLinkModel,
     DefaultLinkWidget,
-    DefaultNodeFactory
-} from '@projectstorm/react-diagrams';
-import { DiagramEngine, LinkWidget, PointModel } from '@projectstorm/react-diagrams-core';
-import { CanvasWidget } from '@projectstorm/react-canvas-core';
 
- 
+} from '@projectstorm/react-diagrams';
+import { LinkWidget, PointModel } from '@projectstorm/react-diagrams-core';
+
+
 export class AdvancedLinkModel extends DefaultLinkModel {
     constructor() {
         super({

@@ -1,0 +1,65 @@
+.custom-node{
+	border-radius: 5px;                         /*yahan par akar node ki height width set karni hai*/
+	width: 200px;
+	height: 50px;
+	/* display: flex; */
+	align-items: flex-start;
+	justify-content: space-between;
+	position: relative;
+}
+
+
+
+.custom-node .node-header {
+  color: white;
+  background-color: rgb(38, 50, 56);                /*yahan par akar heading ka color set krna hai background*/
+  text-align: center;
+}
+
+.custom-node .node-ports {
+  background-color: #2D2D2D;
+}
+.custom-node .node-ports .port {
+  top: 3px;
+  position: relative;
+}
+
+.port-row {
+  padding-left: 8px;
+  height: 30px;
+  
+}
+
+.port-row .port, .port-row p {
+  display: inline-block;
+  color: white;
+}
+
+.port-row p {
+  padding-top: 4px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.custom-node-color{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 20px;
+	height: 20px;
+	transform: translate(-50%, -50%);
+	border-radius: 10px;
+}
+
+.circle-port{
+	width: 12px;
+	height: 12px;
+	margin: 2px;
+	border-radius: 4px;
+	/* background: #27AE60; */
+	cursor: pointer;
+}
+
+.circle-port:hover{
+	background: mediumpurple;
+}

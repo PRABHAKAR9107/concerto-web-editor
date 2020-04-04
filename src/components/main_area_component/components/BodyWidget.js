@@ -4,7 +4,8 @@ import { Application } from '../Application';
 import { DefaultNodeModel } from '@projectstorm/react-diagrams';
 import { CanvasWidget } from '@projectstorm/react-canvas-core';
 import './style.css';
-
+import { AdvancedPortModel } from '../custom-link/Arrow';
+import { JSCustomNodeModel } from '../custom-node-js/JSCustomNodeModel'
 export interface BodyWidgetProps {
 	app: Application;
 }
@@ -16,70 +17,64 @@ export class BodyWidget extends React.Component<BodyWidgetProps> {
 						onDrop={event => {
 							var data = JSON.parse(event.dataTransfer.getData('storm-diagram-node'));
 
-							var node: DefaultNodeModel = null;
-							node = new DefaultNodeModel(data.name, data.color);
 							switch(data.name){
 								case 'Concept':
 									{
-										node.addInPort('String streetAddress','In');
-										node.addOutPort('');
-										node.addInPort('String postalCode','In');
-										node.addOutPort('');
-										node.addInPort('String postOfficeBoxNumber','In');
-										node.addOutPort('');
-										node.addInPort('String Address','In');
-										node.addOutPort('');
+										var ports = [                                                
+											{ text: "String Dela", color: "grey", isIn: false },
+ 											{ text: "String Off", color: "grey", isIn: false },
+										  ]
 										break;
 									}
 
 								case 'Participant':
 									{
-										node.addInPort('String identifier','In');
-										node.addOutPort('');
-										node.addInPort('String identifiedByField optional','In');
-										node.addOutPort('');
-										node.addInPort('TypeIdentifier superType optional','In');
-										node.addOutPort('');
-										node.addInPort(' Decorator[] decorators optional','In');
-										node.addOutPort('');
+										var ports = [                                                
+											{ text: "String Delay", color: "grey", isIn: true },
+ 											{ text: "String Offset", color: "grey", isIn: true },
+										  ]
 										break;
 									}
 								case 'Transaction':
 									{
-										node.addInPort('String transactionId','In');
-										node.addOutPort('');
-										node.addInPort('DateTime timeStamp','In');
-										node.addOutPort('');
+										var ports = [                                                
+											{ text: "String Delay", color: "grey", isIn: true },
+ 											{ text: "String Offset", color: "grey", isIn: true },
+										  ]
 										break;
+										
 										
 									}
 								case 'Event':
 									{
-										node.addInPort('String eventId','In');
-										node.addOutPort('');
-										node.addInPort('DateTime timeStamp','In');
-										node.addOutPort('');
+										var ports = [                                                
+											{ text: "String Delay", color: "grey", isIn: true },
+ 											{ text: "String Offset", color: "grey", isIn: true },
+										  ]
 										break;
 									}
 								case 'Enumerable':
 									{
-										node.addInPort('String summerSeason','In');
-										node.addOutPort('');
-										node.addInPort('String winterSeason','In');
-										node.addOutPort('');
-										node.addInPort('String rainySeason','In');
-										node.addOutPort('');
+										var ports = [                                                
+											{ text: "String Delay", color: "grey", isIn: true },
+ 											{ text: "String Offset", color: "grey", isIn: true },
+										  ]
 										break;
 									}
 								case 'Asset':
 									{
-										node.addInPort('String assetOne','In');
-										node.addOutPort('');
-										node.addInPort('String assetTwo','In');
-										node.addOutPort('');
+										var ports = [                                                
+											{ text: "String Delay", color: "grey", isIn: true },
+ 											{ text: "String Offset", color: "grey", isIn: true },
+										  ]
 										break;
 									}
 							}
+
+							var node = new JSCustomNodeModel({ name: data.name, color: data.color, ports });
+							//node.addPort(new AdvancedPortModel(true, 'in'));
+							node.addPort(new AdvancedPortModel(true, 'out')); //matlab isse arrow aa raha hai but true ,in set krne se ni aaraha
+							
 
 							var point = this.props.app.getDiagramEngine().getRelativeMousePoint(event);
 							node.setPosition(point);
