@@ -79,8 +79,8 @@ export class BodyWidget extends React.Component<BodyWidgetProps> {
 							var data = JSON.parse(event.dataTransfer.getData('storm-diagram-node'));
 
 							var ports = [                                                
-								{ text: "String Dela", color: "grey", isIn: false },
-								 { text: "String Off", color: "grey", isIn: false },
+								{ text: "String Dela", color: "grey", isIn: true },
+								 { text: "String Off", color: "grey", isIn: true },
 							  ]
 
 							var node = new JSCustomNodeModel({ name: data.name, color: data.color, ports });
@@ -99,8 +99,10 @@ export class BodyWidget extends React.Component<BodyWidgetProps> {
 						onDragOver={event => {
 							event.preventDefault();
 						}}>
+							
 						
 							<CanvasWidget className="srd-demo-canvas" engine={this.props.app.getDiagramEngine()} />
+							
 					
 					</div>
 				

@@ -3,16 +3,14 @@ import { PortWidget } from '@projectstorm/react-diagrams';
 
 import './style.css';
 
-/* portzo.color is port color */
+/* portzo.color is port color <PortWidget engine={engine} port={node.getPort('in')}>
+						<div style={{background:'rgb(128, 128, 128)' }}  className="circle-port" /> 
+			</PortWidget> */
 const JSCustomNodeWidget = ({ engine, node }) => {
-	const renderPorts = _ => {
+	const renderList = _ => {
 		return node.portz.map(portzo => {
 			return (
 				<div className="port-row">
-					<PortWidget engine={engine} port={node.getPort('in')}>
-						<div style={{background: portzo.color}} className="circle-port" /> 
-					</PortWidget>
-					
 					<p>{portzo.text}</p>
 				</div>
 			)
@@ -20,12 +18,18 @@ const JSCustomNodeWidget = ({ engine, node }) => {
 	}
 	return (
 		<div className="custom-node" >
-			<div className="node-header" style={{backgroundColor:node.color}}>
-				{ node.name }
+			<div>
+				<PortWidget engine={engine} port={node.getPort('in')}>
+					<div className="node-header" style={{backgroundColor:node.color}}>
+						{ node.name }
+					</div>
+				</PortWidget>
 			</div>
+			<button style={{float:'right'}}>x</button>
 			<div className="node-ports" style={{backgroundColor:node.color}}>
-				{renderPorts()}
+				{renderList()}
 			</div>
+			
 		</div>
 	);
 }

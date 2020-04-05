@@ -54,7 +54,7 @@
 .circle-port{
 	width: 12px;
 	height: 12px;
-	margin: 2px;
+	margin: 0 auto;
 	border-radius: 4px;
 	/* background: #27AE60; */
 	cursor: pointer;
