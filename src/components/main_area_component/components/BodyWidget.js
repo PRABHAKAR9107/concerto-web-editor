@@ -11,69 +11,81 @@ export interface BodyWidgetProps {
 }
 
 export class BodyWidget extends React.Component<BodyWidgetProps> {
+	constructor(props){
+		super(props);
+		this.state={
+		  items:[],
+		  currentItem:{
+			text:'',
+			key:''
+		  }
+		}
+		this.handleInput=this.handleInput.bind(this);
+		this.addItem=this.addItem.bind(this);
+		this.deleteItem=this.deleteItem.bind(this);
+		this.setUpdate=this.setUpdate.bind(this);
+	  }
+	
+	  handleInput(e){
+		this.setState({
+		  currentItem:{
+			text:e.target.value,
+			key:Date.now()
+		  }
+		})
+	  }
+	
+	  addItem(e){
+		e.preventDefault();
+		const newItem=this.state.currentItem;
+		
+		if(newItem.text !==""){
+		  console.log(newItem);
+		  const newItems =[...this.state.items,newItem];
+		  this.setState({
+			items:newItems,
+			currentItem:{
+			  text:"",
+			  key:""
+			}
+		  })
+	
+		}
+	  }
+	
+	  deleteItem(key){
+		const filteredItems=this.state.items.filter(item => 
+			item.key!==key );
+		this.setState({
+		  items:filteredItems
+		})
+	  }
+	
+	  setUpdate(text,key){
+		const items=this.state.items;
+		items.map(item =>{
+		  if(item.key === key){
+			item.text=text;
+		  }
+		})
+		this.setState({
+		  items:items
+		})
+	  }
 	render() {
 		return (
 					<div
 						onDrop={event => {
 							var data = JSON.parse(event.dataTransfer.getData('storm-diagram-node'));
 
-							switch(data.name){
-								case 'Concept':
-									{
-										var ports = [                                                
-											{ text: "String Dela", color: "grey", isIn: false },
- 											{ text: "String Off", color: "grey", isIn: false },
-										  ]
-										break;
-									}
-
-								case 'Participant':
-									{
-										var ports = [                                                
-											{ text: "String Delay", color: "grey", isIn: true },
- 											{ text: "String Offset", color: "grey", isIn: true },
-										  ]
-										break;
-									}
-								case 'Transaction':
-									{
-										var ports = [                                                
-											{ text: "String Delay", color: "grey", isIn: true },
- 											{ text: "String Offset", color: "grey", isIn: true },
-										  ]
-										break;
-										
-										
-									}
-								case 'Event':
-									{
-										var ports = [                                                
-											{ text: "String Delay", color: "grey", isIn: true },
- 											{ text: "String Offset", color: "grey", isIn: true },
-										  ]
-										break;
-									}
-								case 'Enumerable':
-									{
-										var ports = [                                                
-											{ text: "String Delay", color: "grey", isIn: true },
- 											{ text: "String Offset", color: "grey", isIn: true },
-										  ]
-										break;
-									}
-								case 'Asset':
-									{
-										var ports = [                                                
-											{ text: "String Delay", color: "grey", isIn: true },
- 											{ text: "String Offset", color: "grey", isIn: true },
-										  ]
-										break;
-									}
-							}
+							var ports = [                                                
+								{ text: "String Dela", color: "grey", isIn: false },
+								 { text: "String Off", color: "grey", isIn: false },
+							  ]
 
 							var node = new JSCustomNodeModel({ name: data.name, color: data.color, ports });
 							//node.addPort(new AdvancedPortModel(true, 'in'));
-							node.addPort(new AdvancedPortModel(true, 'out')); //matlab isse arrow aa raha hai but true ,in set krne se ni aaraha
+							node.addPort(new AdvancedPortModel(false, data.type)); //matlab isse arrow aa raha hai but true ,in set krne se ni aaraha
 							
 
 							var point = this.props.app.getDiagramEngine().getRelativeMousePoint(event);
