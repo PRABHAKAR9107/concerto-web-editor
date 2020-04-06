@@ -16,16 +16,37 @@ const JSCustomNodeWidget = ({ engine, node }) => {
 			)
 		})
 	}
+var head_color="";	
+switch(node.name){
+		case "Concept":
+			head_color="rgb(34, 92, 178)"
+			break
+		case "Asset":
+			head_color="rgb(178, 43, 34)"
+			break
+		case "Event":
+			head_color="rgb(93, 46, 113)"
+			break
+		case "Participant":
+			head_color="rgb(178, 135, 4)"
+			break
+		case "Enumerable":
+			head_color="rgb(178, 29, 86)"
+			break
+		case "Transaction":
+			head_color="rgb(28, 127, 51)"
+			break
+
+	}
 	return (
 		<div className="custom-node" >
-			<div>
+			
+			<div className="node-header" style={{backgroundColor:head_color}}>
 				<PortWidget engine={engine} port={node.getPort('in')}>
-					<div className="node-header" style={{backgroundColor:node.color}}>
 						{ node.name }
-					</div>
 				</PortWidget>
 			</div>
-			<button style={{float:'right'}}>x</button>
+			
 			<div className="node-ports" style={{backgroundColor:node.color}}>
 				{renderList()}
 			</div>

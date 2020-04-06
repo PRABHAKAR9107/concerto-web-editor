@@ -6,6 +6,7 @@
 	align-items: flex-start;
 	justify-content: space-between;
 	position: relative;
+	
 }
 
 
@@ -14,6 +15,7 @@
   color: white;
   background-color: rgb(38, 50, 56);                /*yahan par akar heading ka color set krna hai background*/
   text-align: center;
+  
 }
 
 .custom-node .node-ports {
@@ -27,6 +29,7 @@
 .port-row {
   padding-left: 8px;
   height: 30px;
+  font-size: 13px;
   
 }
 

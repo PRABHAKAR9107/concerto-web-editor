@@ -34,3 +34,4 @@ export const Class = () =>(
   </div>
 );
 
+/**by changing type to out and setting node.addPort(new AdvancedPortModel(false, data.type));all the arrows start working normally */
