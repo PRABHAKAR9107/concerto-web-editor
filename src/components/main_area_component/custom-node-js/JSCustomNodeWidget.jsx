@@ -10,7 +10,7 @@ const JSCustomNodeWidget = ({ engine, node }) => {
 	const renderList = _ => {
 		return node.portz.map(portzo => {
 			return (
-				<div className="port-row">
+				<div className="port-row" key={portzo.key}>
 					<p>{portzo.text}</p>
 				</div>
 			)
