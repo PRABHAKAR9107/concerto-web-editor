@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { Application } from '../Application';
-import { DefaultNodeModel } from '@projectstorm/react-diagrams';
 import { CanvasWidget } from '@projectstorm/react-canvas-core';
 import './style.css';
 import { AdvancedPortModel } from '../custom-link/Arrow';

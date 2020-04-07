@@ -16,32 +16,34 @@ const JSCustomNodeWidget = ({ engine, node }) => {
 			)
 		})
 	}
-var head_color="";	
-switch(node.name){
-		case "Concept":
-			head_color="rgb(34, 92, 178)"
-			break
-		case "Asset":
-			head_color="rgb(178, 43, 34)"
-			break
-		case "Event":
-			head_color="rgb(93, 46, 113)"
-			break
-		case "Participant":
-			head_color="rgb(178, 135, 4)"
-			break
-		case "Enumerable":
-			head_color="rgb(178, 29, 86)"
-			break
-		case "Transaction":
-			head_color="rgb(28, 127, 51)"
-			break
+	const head_color=()=>{
+		switch(node.name){
+			case "Concept":
+				return { background: "rgb(34, 92, 178)" }
+
+			case "Asset":
+				return { backgroundColor: "rgb(178, 43, 34)" }
+
+			case "Event":
+				return { backgroundColor: "rgb(93, 46, 113)" }
+
+			case "Participant":
+				return { background: "rgb(178, 135, 4)" }
+
+			case "Enumerable":
+				return {backgroundColor: "rgb(178, 29, 86)" }
+
+			case "Transaction":
+				return { background:"rgb(28, 127, 51)" }
+
 
 	}
+}	
+
 	return (
 		<div className="custom-node" >
 			
-			<div className="node-header" style={{backgroundColor:head_color}}>
+			<div className="node-header" style={ head_color() }>
 				<PortWidget engine={engine} port={node.getPort('in')}>
 						{ node.name }
 				</PortWidget>
