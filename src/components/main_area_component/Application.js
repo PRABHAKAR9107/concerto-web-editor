@@ -13,7 +13,7 @@ export class Application {
 
      newModel() {
 		this.activeModel = new SRD.DiagramModel();
-		this.diagramEngine.getLinkFactories().registerFactory(new AdvancedLinkFactory());//by this line we converted default links into advanced links
+		//this.diagramEngine.getLinkFactories().registerFactory(new AdvancedLinkFactory());//by this line we converted default links into advanced links
 		this.diagramEngine.getNodeFactories().registerFactory(new JSCustomNodeFactory());//by this line we converted the default nodes into customized nodes
 		this.diagramEngine.setModel(this.activeModel);
 
