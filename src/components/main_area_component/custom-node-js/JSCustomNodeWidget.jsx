@@ -16,7 +16,6 @@ const JSCustomNodeWidget = ({ engine, node }) => {
 			)
 		})
 	}
-
 	const head_color=()=>{
 		switch(node.name){
 			case "Concept":
@@ -36,6 +35,8 @@ const JSCustomNodeWidget = ({ engine, node }) => {
 
 			case "Transaction":
 				return { background:"rgb(28, 127, 51)" }
+
+
 	}
 }	
 
