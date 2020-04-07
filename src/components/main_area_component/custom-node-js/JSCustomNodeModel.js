@@ -1,5 +1,6 @@
 import {  NodeModel } from '@projectstorm/react-diagrams';
 import { AdvancedPortModel } from '../custom-link/Arrow';
+import { DefaultPortModel } from '@projectstorm/react-diagrams';
 /**
  * Example of a custom model using pure javascript
  */
@@ -16,7 +17,7 @@ export class JSCustomNodeModel extends NodeModel {
 
 		options.ports.forEach(port => {/*yahan akar setting karn padhegi */
 			this.addPort(
-				new AdvancedPortModel({    
+				new DefaultPortModel({    
 					in: port,
 					name: "in"
 				})

@@ -35,6 +35,8 @@ const JSCustomNodeWidget = ({ engine, node }) => {
 
 			case "Transaction":
 				return { background:"rgb(28, 127, 51)" }
+			default:
+				break
 
 
 	}

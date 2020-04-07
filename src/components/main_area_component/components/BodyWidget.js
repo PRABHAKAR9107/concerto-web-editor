@@ -4,6 +4,7 @@ import { CanvasWidget } from '@projectstorm/react-canvas-core';
 import './style.css';
 import { AdvancedPortModel } from '../custom-link/Arrow';
 import { JSCustomNodeModel } from '../custom-node-js/JSCustomNodeModel'
+import { DefaultPortModel } from '@projectstorm/react-diagrams';
 export interface BodyWidgetProps {
 	app: Application;
 }
@@ -61,11 +62,13 @@ export class BodyWidget extends React.Component<BodyWidgetProps> {
 										 { text: "DateTime timeStamp", color: "grey", isIn: true, key:2 },
 									  ]
 									break
+								default:
+									break
 						
 							}  
 							var node = new JSCustomNodeModel({ name: data.name, color: data.color, ports });
 							
-							node.addPort(new AdvancedPortModel(false, data.type)); 
+							node.addPort(new DefaultPortModel(false, data.type)); 
 							
 
 							var point = this.props.app.getDiagramEngine().getRelativeMousePoint(event);
