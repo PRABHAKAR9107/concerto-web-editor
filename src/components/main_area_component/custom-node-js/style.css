@@ -66,3 +66,10 @@
 .circle-port:hover{
 	background: mediumpurple;
 }
+
+p input{
+    background-color: transparent;
+    border: 0;
+	color:#ffffff;
+	
+}

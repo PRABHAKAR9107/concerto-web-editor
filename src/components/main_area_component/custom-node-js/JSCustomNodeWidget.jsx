@@ -1,17 +1,38 @@
 import * as React from 'react';
 import { PortWidget } from '@projectstorm/react-diagrams';
-
+//import { MdClose } from "react-icons/md";
 import './style.css';
+import { useState } from 'react';
 
-/* portzo.color is port color <PortWidget engine={engine} port={node.getPort('in')}>
-						<div style={{background:'rgb(128, 128, 128)' }}  className="circle-port" /> 
-			</PortWidget> */
 const JSCustomNodeWidget = ({ engine, node }) => {
+	var [list,setList]=useState(
+		[                                                
+			{ text: "String eventId", color: "grey", isIn: true, key:1 },
+			{ text: "DateTime timeStamp", color: "grey", isIn: true, key:2 },
+		]
+	)
+	const addItem=(x)=>{
+		setList(list=[...list,x])
+		console.log(list);
+		
+	}
+
+	const setUpdate=()=>{
+		console.log("something")
+	}
+
+	const deleteItem=(key)=>{
+		const filteredItems=list.filter(item => 
+			item.key!==key );
+		setList(list=filteredItems)
+
+	  }
+
 	const renderList = _ => {
 		return node.portz.map(portzo => {
 			return (
 				<div className="port-row" key={portzo.key}>
-					<p>{portzo.text}</p>
+					<p><input type="text"  value={ portzo.text } onClick={ ()=>{deleteItem(portzo.key)} } onChange={setUpdate} /></p>
 				</div>
 			)
 		})
@@ -49,6 +70,7 @@ const JSCustomNodeWidget = ({ engine, node }) => {
 				<PortWidget engine={engine} port={node.getPort('in')}>
 						{ node.name }
 				</PortWidget>
+				
 			</div>
 			
 			<div className="node-ports" style={{backgroundColor:node.color}}>

@@ -17,7 +17,7 @@ export class JSCustomNodeModel extends NodeModel {
 
 		options.ports.forEach(port => {/*yahan akar setting karn padhegi */
 			this.addPort(
-				new DefaultPortModel({    
+				new AdvancedPortModel({    
 					in: port,
 					name: "in"
 				})

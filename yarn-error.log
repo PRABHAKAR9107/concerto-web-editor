@@ -1,11 +1,11 @@
 Arguments: 
-  /usr/bin/node /usr/local/bin/yarn upgrade
+  /usr/bin/node /home/kanav/.yarn/bin/yarn.js
 
 PATH: 
-  /home/kanav/anaconda3/bin:/home/kanav/anaconda3/condabin:/home/kanav/Projects/Proj1/bin:/usr/local/go/bin:/home/kanav/go/bin:/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+  /home/kanav/.yarn/bin:/home/kanav/.config/yarn/global/node_modules/.bin:/home/kanav/anaconda3/bin:/home/kanav/anaconda3/condabin:/home/kanav/Projects/Proj1/bin:/usr/local/go/bin:/home/kanav/go/bin:/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
 
 Yarn version: 
-  1.22.0
+  1.22.4
 
 Node version: 
   10.15.2
@@ -14,8 +14,8 @@ Platform:
   linux x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/@babel%2fcore: ESOCKETTIMEDOUT
-      at ClientRequest.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:141354:19)
+  Error: https://registry.yarnpkg.com/@testing-library/dom/-/dom-6.16.0.tgz: ESOCKETTIMEDOUT
+      at ClientRequest.<anonymous> (/home/kanav/.yarn/lib/cli.js:141375:19)
       at Object.onceWrapper (events.js:277:13)
       at ClientRequest.emit (events.js:189:13)
       at TLSSocket.emitRequestTimeout (_http_client.js:662:40)
@@ -73,11 +73,13 @@ npm manifest:
       "eslint-plugin-jsx-a11y": "6.2.3",
       "eslint-plugin-react": "7.18.0",
       "eslint-plugin-react-hooks": "1.x",
+      "file-loader": "4.3.0",
       "filesize": "6.0.1",
       "js-yaml": "^3.13.1",
       "lodash": "4.*",
       "mathjs": "^6.6.1",
       "mini-css-extract-plugin": "0.9.0",
+      "optimize-css-assets-webpack-plugin": "5.0.3",
       "path-js": "^1.0.1",
       "pathfinding": "^0.4.18",
       "paths-js": "^0.4.9",
