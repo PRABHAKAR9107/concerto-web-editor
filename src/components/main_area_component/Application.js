@@ -1,4 +1,6 @@
+import {DeleteItemsAction} from '@projectstorm/react-canvas-core';
 import * as SRD from '@projectstorm/react-diagrams';
+
 import { AdvancedLinkFactory } from './custom-link/Arrow';
 import { JSCustomNodeFactory } from './custom-node-js/JSCustomNodeFactory';
 
@@ -7,7 +9,10 @@ export class Application {
 	diagramEngine= SRD.DiagramEngine;
 	
 	constructor() {
-		this.diagramEngine = SRD.default();
+		this.diagramEngine = SRD.default({
+			registerDefaultDeleteItemsAction: false				//with this I am able to overwrite the default delete action
+		});
+		this.diagramEngine.getActionEventBus().registerAction(new DeleteItemsAction({keyCodes: [46]}));    //delete key value is 46 with this you will be able to delete node with delete key
 		this.newModel();
 	}
 

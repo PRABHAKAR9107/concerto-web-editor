@@ -6,15 +6,22 @@ import { useState } from 'react';
 
 const JSCustomNodeWidget = ({ engine, node }) => {
 	var [list,setList]=useState(
-		[                                                
-			{ text: "String eventId", color: "grey", isIn: true, key:1 },
-			{ text: "DateTime timeStamp", color: "grey", isIn: true, key:2 },
-		]
+		{
+			items:[],
+			currentItem:{ text: "", color: node.color, isIn: true, key:node.key },
+		}                               
 	)
-	const addItem=(x)=>{
-		setList(list=[...list,x])
+	const addItem=()=>{
+		const newItem=list.currentItem;
+		setList(list.items=[...list.items,newItem])
 		console.log(list);
-		
+	
+	}
+
+	const handleInput=(e)=>{
+		//console.log(e.target.value)
+		setList(list.currentItem.text=e)
+		//node.portzo.text =e.target.value
 	}
 
 	const setUpdate=()=>{
@@ -22,7 +29,7 @@ const JSCustomNodeWidget = ({ engine, node }) => {
 	}
 
 	const deleteItem=(key)=>{
-		const filteredItems=list.filter(item => 
+		const filteredItems=list.items.filter(item =>           //list.filter is not a function
 			item.key!==key );
 		setList(list=filteredItems)
 
@@ -32,7 +39,7 @@ const JSCustomNodeWidget = ({ engine, node }) => {
 		return node.portz.map(portzo => {
 			return (
 				<div className="port-row" key={portzo.key}>
-					<p><input type="text"  value={ portzo.text } onClick={ ()=>{deleteItem(portzo.key)} } onChange={setUpdate} /></p>
+					<p><input type="text"  value="enter the fields" onClick={ ()=>{deleteItem(portzo.key)} } onChange={ handleInput } /></p>
 				</div>
 			)
 		})
@@ -58,8 +65,6 @@ const JSCustomNodeWidget = ({ engine, node }) => {
 				return { background:"rgb(28, 127, 51)" }
 			default:
 				break
-
-
 	}
 }	
 
